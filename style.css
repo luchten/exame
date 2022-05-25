@@ -1,0 +1,190 @@
+:root {
+    --my-red: rgb(230, 0, 0);
+    --my-black: rgb(50, 50, 50);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p, h1, ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;    
+    height: 200vh;
+}
+
+header {
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.banner-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+    margin: 0 22%;
+    padding: 10px;
+}
+
+.fa-solid {
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.fa-bars:hover, .fa-magnifying-glass:hover {
+    color: var(--my-red);
+}
+
+.exame-banner {
+    width: 80%;
+}
+
+button.assine {
+    border-radius: 20px;
+    padding: 8px 20px;
+    background-color: var(--my-red);
+    color: white;    
+}
+
+button.login {
+    background-color: transparent;
+}
+
+.banner-bar button {
+    border: none;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-right: 15px;
+    font-weight: bold;
+    transition: 0.25s;    
+}
+
+button.login:hover {
+    color: var(--my-red);
+}
+
+.main-menu {
+    padding: 0;
+    margin: 10px 23%;    
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-menu a {
+    color: var(--my-black);
+    font-weight: 900;
+    font-size: 18px;
+    display: block;
+    padding: 10px 15px;
+    transition: 0.25s;
+}
+
+.main-menu a:hover {
+    color: var(--my-red);
+}
+
+.side-bar {
+    position: absolute;
+    top: 0;
+    left: 0;          
+    width: 320px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    background-color: white;
+}
+
+.side-bar-active {
+    transform: translateX(0);
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.user a.acess {
+    font-size: 15px;
+    font-weight: 900;
+    display: block;
+    color: black;
+}
+
+.user a {
+    color: var(--my-black);
+    letter-spacing: 1px;
+    font-size: 18px;
+    transition: 0.25s;  
+}
+
+.user a:hover {
+    color: var(--my-red);
+}
+
+.fa-circle-user {
+    pointer-events: none;
+    margin-right: 5px;
+    font-size: 35px;
+}
+
+.side-menu {
+    padding: 30px 15px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    border-top: 1px solid rgb(230, 230, 230);
+}
+
+.side-menu1 {
+    padding: 30px 15px;
+}
+
+.side-menu a, .side-menu1 a {
+    color: black;
+    font-weight: bold;
+    display: block;
+    padding: 10px 0;
+    transition: 0.25s;
+    font-size: 17px;
+}
+
+.side-menu1 a {
+    color: rgb(75, 75, 75);
+    font-weight: normal;
+}
+
+.side-menu a:hover, .side-menu1 a:hover {
+    color: var(--my-red);
+}
+
+.modal-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.modal-bg-active {
+    opacity: 1;
+    pointer-events: all;
+}
