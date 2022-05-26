@@ -1,6 +1,6 @@
 :root {
     --my-red: rgb(230, 0, 0);
-    --my-black: rgb(50, 50, 50);
+    --my-black: rgb(40, 40, 40);
 }
 
 * {
@@ -25,6 +25,7 @@ li {
 body {
     font-family: Arial, Helvetica, sans-serif;    
     height: 200vh;
+    overflow-y: hidden;
 }
 
 header {
@@ -39,6 +40,10 @@ header {
     padding: 10px;
 }
 
+.display-none {
+    display: none;
+}
+
 .fa-solid {
     padding: 10px;
     font-size: 18px;
@@ -46,7 +51,7 @@ header {
     transition: 0.25s;
 }
 
-.fa-bars:hover, .fa-magnifying-glass:hover {
+.fa-bars:hover, .banner-bar .fa-magnifying-glass:hover {
     color: var(--my-red);
 }
 
@@ -82,7 +87,7 @@ button.login:hover {
     padding: 0;
     margin: 10px 23%;    
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;    
 }
 
 .main-menu a {
@@ -103,18 +108,24 @@ button.login:hover {
     top: 0;
     left: 0;          
     width: 320px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    height: 100%;    
     transform: translateX(-100%);
     transition: 0.5s;
     background-color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow-y: scroll;
+}
+
+.no-overflow {
+    overflow-y: hidden;
 }
 
 .side-bar-active {
     transform: translateX(0);
 }
 
-.user {
+.user {    
     display: flex;
     align-items: center;
     padding: 15px;
@@ -163,8 +174,8 @@ button.login:hover {
     font-size: 17px;
 }
 
-.side-menu1 a {
-    color: rgb(75, 75, 75);
+.side-menu1 a, .links-div a {
+    color: var(--my-black);
     font-weight: normal;
 }
 
@@ -181,10 +192,88 @@ button.login:hover {
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
     pointer-events: none;
-    transition: 0.5s;
+    transition: 0.5s;    
 }
 
 .modal-bg-active {
     opacity: 1;
     pointer-events: all;
+}
+
+.fa-angle-right {
+    float: right;
+}
+
+.side-bar-academy, .side-bar-invest {
+    position: absolute;
+    top: 0;
+    left: 0;          
+    width: 320px;
+    height: 100%;        
+    transition: 0.5s;
+    background-color: white;
+    display: none;    
+}
+
+.side-bar-academy-active, .side-bar-invest-active {
+    display: block;
+}
+
+.menu-academy-div h1, .menu-invest-div h1 {
+    font-size: 23px;
+    font-weight: 900;
+    margin-left: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.fa-angle-left {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.menu-academy-div, .menu-invest-div {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.academy-div, .invest-div {
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+.academy-div h1, .invest-div h1 {
+    margin-left: 20px;
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.links-div {
+    padding: 20px;
+    height: 100%;
+    background-color: rgb(240, 240, 240);
+}
+
+.links-div a {
+    margin: 20px 0;
+}
+
+.search-bar {
+    display: none;
+    align-items: center;
+    height: 50px;
+    margin: 0 23%;    
+}
+
+.display-flex {
+    display: flex;
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    padding: 10px;
 }
