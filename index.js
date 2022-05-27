@@ -12,6 +12,26 @@ const searchButton = document.getElementsByClassName('fa-magnifying-glass')[1];
 const bannerBar = document.getElementsByClassName('banner-bar')[0];
 const searchBar = document.getElementsByClassName('search-bar')[0];
 const closeSearchButton = document.getElementsByClassName('fa-times')[0];
+const exameBanner = document.getElementsByClassName('exame-banner')[0];
+var oldScroll = window.scrollY;
+
+window.addEventListener('scroll', () => {
+    if (this.scrollY > oldScroll) {
+        setTimeout(() => {            
+            mainMenu.classList.remove('main-menu-up');
+        }, 250);
+    } else {
+        setTimeout(() => {
+            mainMenu.classList.add('main-menu-up');
+        }, 250);
+    }
+    if (this.scrollY != 0) {
+        exameBanner.classList.add('exame-banner-smaller');
+    } else {
+        exameBanner.classList.remove('exame-banner-smaller');
+    }
+    oldScroll = this.scrollY;
+})
 
 document.addEventListener('click', (event) => {
     if (event.target != sideBar.children[0] && event.target != sideBar.children[1] && event.target != sideBar.children[2] && event.target != toggleButton && event.target != academyButton && event.target != academyBackButton && event.target !=investButton && event.target != investBackButton) {

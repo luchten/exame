@@ -23,16 +23,18 @@ li {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;    
-    height: 200vh;
-    overflow-y: hidden;
+    font-family: Arial, Helvetica, sans-serif;            
 }
 
 header {
-    border-bottom: 1px solid rgb(230, 230, 230);
+    border-bottom: 1px solid rgb(230, 230, 230);    
+    position: sticky;
+    top: 0;    
+    background-color: white;
+    z-index: 5;
 }
 
-.banner-bar {
+.banner-bar {    
     display: flex;
     align-items: center;
     justify-content: space-between;    
@@ -56,7 +58,12 @@ header {
 }
 
 .exame-banner {
-    width: 80%;
+    width: 23%;
+    transition: 0.5s;
+}
+
+.exame-banner-smaller {
+    width: 17%;
 }
 
 button.assine {
@@ -83,11 +90,21 @@ button.login:hover {
     color: var(--my-red);
 }
 
-.main-menu {
-    padding: 0;
-    margin: 10px 23%;    
+.main-menu {    
+    margin: 0 23%;    
     display: flex;
-    justify-content: space-between;    
+    justify-content: space-between;
+    position: sticky;
+    top: 59px;
+    transition: 0.5s;
+    background-color: white;
+    z-index: 2;
+}
+
+.main-menu-up {    
+    z-index: -1;
+    top: 0;
+    pointer-events: none;    
 }
 
 .main-menu a {
@@ -96,7 +113,7 @@ button.login:hover {
     font-size: 18px;
     display: block;
     padding: 10px 15px;
-    transition: 0.25s;
+    transition: 0.25s;    
 }
 
 .main-menu a:hover {
@@ -114,7 +131,7 @@ button.login:hover {
     background-color: white;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    overflow-y: scroll;
+    overflow-y: scroll;    
 }
 
 .no-overflow {
@@ -184,7 +201,7 @@ button.login:hover {
 }
 
 .modal-bg {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
@@ -192,7 +209,8 @@ button.login:hover {
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
     pointer-events: none;
-    transition: 0.5s;    
+    transition: 0.5s;  
+    z-index: 10;  
 }
 
 .modal-bg-active {
@@ -276,4 +294,13 @@ button.login:hover {
     width: 100%;
     border: none;
     padding: 10px;
+}
+
+.market {
+    height: 50px;
+    background-color: black;
+}
+
+p {
+    margin: 100px 0;
 }
