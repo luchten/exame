@@ -26,9 +26,10 @@ window.addEventListener('scroll', () => {
         }, 250);
     }
     if (this.scrollY != 0) {
-        exameBanner.classList.add('exame-banner-smaller');
+        exameBanner.classList.add('exame-banner-smaller');        
     } else {
         exameBanner.classList.remove('exame-banner-smaller');
+        mainMenu.classList.remove('main-menu-up');
     }
     oldScroll = this.scrollY;
 })
@@ -66,8 +67,12 @@ investBackButton.addEventListener('click', () => {
 })
 
 searchButton.addEventListener('click', () => {
-    bannerBar.classList.toggle('display-none'); 
+    bannerBar.classList.toggle('display-none');
     searchBar.classList.toggle('display-flex');
+    if (window.scrollY != 0) {
+        searchBar.classList.add('search-bar-fixed');
+        mainMenu.classList.add('main-menu-up');
+    }
 })
 
 closeSearchButton.addEventListener('click', () => {

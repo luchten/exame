@@ -102,9 +102,7 @@ button.login:hover {
 }
 
 .main-menu-up {    
-    z-index: -1;
     top: 0;
-    pointer-events: none;    
 }
 
 .main-menu a {
@@ -283,7 +281,16 @@ button.login:hover {
     display: none;
     align-items: center;
     height: 50px;
-    margin: 0 23%;    
+    margin: 0 23%;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 5;
+}
+
+.search-bar-fixed {
+    position: fixed;  
+    width: 54%;  
 }
 
 .display-flex {
