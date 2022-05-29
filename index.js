@@ -14,13 +14,16 @@ const searchBar = document.getElementsByClassName('search-bar')[0];
 const closeSearchButton = document.getElementsByClassName('fa-times')[0];
 const exameBanner = document.getElementsByClassName('exame-banner')[0];
 var oldScroll = window.scrollY;
+var searchBarOpen = false;
+var searchBarClose = false;
 
 window.addEventListener('scroll', () => {
-    if (this.scrollY > oldScroll) {
+    if (this.scrollY > oldScroll && searchBarOpen == false) {
         setTimeout(() => {            
             mainMenu.classList.remove('main-menu-up');
         }, 250);
-    } else {
+    } 
+    if (this.scrollY < oldScroll && searchBarClose == false) {
         setTimeout(() => {
             mainMenu.classList.add('main-menu-up');
         }, 250);
@@ -28,10 +31,11 @@ window.addEventListener('scroll', () => {
     if (this.scrollY != 0) {
         exameBanner.classList.add('exame-banner-smaller');        
     } else {
-        exameBanner.classList.remove('exame-banner-smaller');
-        mainMenu.classList.remove('main-menu-up');
-    }
-    oldScroll = this.scrollY;
+        exameBanner.classList.remove('exame-banner-smaller');        
+    }    
+    searchBarClose = false;
+    searchBarOpen = false;
+    oldScroll = this.scrollY;    
 })
 
 document.addEventListener('click', (event) => {
@@ -42,40 +46,42 @@ document.addEventListener('click', (event) => {
 })
 
 toggleButton.addEventListener('click', () => {
-    sideBar.classList.toggle('side-bar-active');
-    modalBg.classList.toggle('modal-bg-active');
+    sideBar.classList.add('side-bar-active');
+    modalBg.classList.add('modal-bg-active');
 })
 
 academyButton.addEventListener('click', () => {
-    sideBarAcademy.classList.toggle('side-bar-academy-active');
-    sideBar.classList.toggle('no-overflow');
+    sideBarAcademy.classList.add('side-bar-academy-active');
+    sideBar.classList.add('no-overflow');
 })
 
 academyBackButton.addEventListener('click', () => {
-    sideBarAcademy.classList.toggle('side-bar-academy-active');
-    sideBar.classList.toggle('no-overflow');
+    sideBarAcademy.classList.remove('side-bar-academy-active');
+    sideBar.classList.remove('no-overflow');
 })
 
 investButton.addEventListener('click', () => {
-    sideBarInvest.classList.toggle('side-bar-invest-active')
-    sideBar.classList.toggle('no-overflow');
+    sideBarInvest.classList.add('side-bar-invest-active')
+    sideBar.classList.add('no-overflow');
 })
 
 investBackButton.addEventListener('click', () => {
-    sideBarInvest.classList.toggle('side-bar-invest-active');
-    sideBar.classList.toggle('no-overflow');
+    sideBarInvest.classList.remove('side-bar-invest-active');
+    sideBar.classList.remove('no-overflow');
 })
 
 searchButton.addEventListener('click', () => {
-    bannerBar.classList.toggle('display-none');
-    searchBar.classList.toggle('display-flex');
     if (window.scrollY != 0) {
-        searchBar.classList.add('search-bar-fixed');
         mainMenu.classList.add('main-menu-up');
+        searchBarOpen = true;
     }
+    bannerBar.classList.add('display-none');
+    searchBar.classList.add('display-flex');
 })
 
 closeSearchButton.addEventListener('click', () => {
-    bannerBar.classList.toggle('display-none');
-    searchBar.classList.toggle('display-flex');
+    bannerBar.classList.remove('display-none');
+    searchBar.classList.remove('display-flex');    
+    mainMenu.classList.remove('main-menu-up');
+    searchBarClose = true;
 })

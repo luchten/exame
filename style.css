@@ -280,17 +280,12 @@ button.login:hover {
 .search-bar {
     display: none;
     align-items: center;
-    height: 50px;
-    margin: 0 23%;
+    height: 60px;
+    padding: 0 23%;
     position: sticky;
     top: 0;
     background-color: white;
     z-index: 5;
-}
-
-.search-bar-fixed {
-    position: fixed;  
-    width: 54%;  
 }
 
 .display-flex {
