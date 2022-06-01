@@ -7,7 +7,8 @@ const academyBackButton = document.querySelector('.menu-academy-div h1');
 const investButton = document.getElementsByClassName('invest')[0];
 const sideBarInvest = document.getElementsByClassName('side-bar-invest')[0];
 const investBackButton = document.querySelector('.menu-invest-div h1');
-const mainMenu = document.getElementsByClassName('main-menu')[0];
+const mainMenu = document.getElementsByClassName('main-menu-container')[0];
+const mainMenuMobile = document.getElementsByClassName('main-menu-mobile-container')[0];
 const searchButton = document.getElementsByClassName('fa-magnifying-glass')[1];
 const bannerBar = document.getElementsByClassName('banner-bar')[0];
 const searchBar = document.getElementsByClassName('search-bar')[0];
@@ -16,16 +17,33 @@ const exameBanner = document.getElementsByClassName('exame-banner')[0];
 var oldScroll = window.scrollY;
 var searchBarOpen = false;
 var searchBarClose = false;
+var smallScreen = false;
+
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth <= 764 && smallScreen == false) {
+        mainMenu.classList.add('display-none');
+        mainMenuMobile.classList.add('display-block');
+        smallScreen = true;
+    }
+    if (window.innerWidth >= 764 && smallScreen) {
+        mainMenu.classList.remove('display-none');
+        mainMenuMobile.classList.remove('display-block');
+        smallScreen = false;
+    }
+}, true);
 
 window.addEventListener('scroll', () => {
     if (this.scrollY > oldScroll && searchBarOpen == false) {
         setTimeout(() => {            
             mainMenu.classList.remove('main-menu-up');
+            mainMenuMobile.classList.remove('main-menu-up');
         }, 250);
     } 
     if (this.scrollY < oldScroll && searchBarClose == false) {
         setTimeout(() => {
             mainMenu.classList.add('main-menu-up');
+            mainMenuMobile.classList.add('main-menu-up');
         }, 250);
     }
     if (this.scrollY != 0) {
@@ -73,6 +91,7 @@ investBackButton.addEventListener('click', () => {
 searchButton.addEventListener('click', () => {
     if (window.scrollY != 0) {
         mainMenu.classList.add('main-menu-up');
+        mainMenuMobile.classList.add('main-menu-up');
         searchBarOpen = true;
     }
     bannerBar.classList.add('display-none');
@@ -83,5 +102,6 @@ closeSearchButton.addEventListener('click', () => {
     bannerBar.classList.remove('display-none');
     searchBar.classList.remove('display-flex');    
     mainMenu.classList.remove('main-menu-up');
+    mainMenuMobile.classList.remove('main-menu-up');
     searchBarClose = true;
 })
