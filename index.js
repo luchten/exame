@@ -19,6 +19,11 @@ var searchBarOpen = false;
 var searchBarClose = false;
 var smallScreen = false;
 
+if (window.innerWidth <= 764) {
+    mainMenu.classList.add('display-none');
+    mainMenuMobile.classList.add('display-block');
+    console.log('menor');
+}
 
 window.addEventListener('resize', () => {
     if (window.innerWidth <= 764 && smallScreen == false) {
@@ -35,11 +40,11 @@ window.addEventListener('resize', () => {
 
 window.addEventListener('scroll', () => {
     if (this.scrollY > oldScroll && searchBarOpen == false) {
-        setTimeout(() => {            
+        setTimeout(() => {
             mainMenu.classList.remove('main-menu-up');
             mainMenuMobile.classList.remove('main-menu-up');
         }, 250);
-    } 
+    }
     if (this.scrollY < oldScroll && searchBarClose == false) {
         setTimeout(() => {
             mainMenu.classList.add('main-menu-up');
@@ -47,17 +52,17 @@ window.addEventListener('scroll', () => {
         }, 250);
     }
     if (this.scrollY != 0) {
-        exameBanner.classList.add('exame-banner-smaller');        
+        exameBanner.classList.add('exame-banner-smaller');
     } else {
-        exameBanner.classList.remove('exame-banner-smaller');        
-    }    
+        exameBanner.classList.remove('exame-banner-smaller');
+    }
     searchBarClose = false;
     searchBarOpen = false;
-    oldScroll = this.scrollY;    
+    oldScroll = this.scrollY;
 })
 
 document.addEventListener('click', (event) => {
-    if (event.target != sideBar.children[0] && event.target != sideBar.children[1] && event.target != sideBar.children[2] && event.target != toggleButton && event.target != academyButton && event.target != academyBackButton && event.target !=investButton && event.target != investBackButton) {
+    if (event.target != sideBar.children[0] && event.target != sideBar.children[1] && event.target != sideBar.children[2] && event.target != toggleButton && event.target != academyButton && event.target != academyBackButton && event.target != investButton && event.target != investBackButton) {
         sideBar.classList.remove('side-bar-active');
         modalBg.classList.remove('modal-bg-active');
     }
@@ -100,7 +105,7 @@ searchButton.addEventListener('click', () => {
 
 closeSearchButton.addEventListener('click', () => {
     bannerBar.classList.remove('display-none');
-    searchBar.classList.remove('display-flex');    
+    searchBar.classList.remove('display-flex');
     mainMenu.classList.remove('main-menu-up');
     mainMenuMobile.classList.remove('main-menu-up');
     searchBarClose = true;

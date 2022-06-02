@@ -9,7 +9,7 @@
     box-sizing: border-box;
 }
 
-p, h1, ul {
+p, h1, h3, h4, ul {
     margin: 0;
     padding: 0;
 }
@@ -30,9 +30,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;    
-    padding-bottom: 20px;
-    margin: 18px 7%;
-    border-bottom: 1px solid rgb(230, 230, 230);
+    /* padding-bottom: 20px; */
+    margin: 18px 7%;    
 }
 
 .display-none {
@@ -92,7 +91,7 @@ button.login:hover {
 
 .main-menu-container {
     position: sticky;
-    top: 95px;
+    top: 75px;
     transition: 0.5s;
     background-color: white;
     z-index: 1;
@@ -101,7 +100,7 @@ button.login:hover {
 .main-menu-mobile-container {
     display: none;
     position: sticky;
-    top: 95px;
+    top: 75px;
     transition: 0.5s;
     background-color: white;
     z-index: 1;
@@ -167,7 +166,7 @@ button.login:hover {
     transition: 0.25s;  
 }
 
-.user a:hover {
+.user a:hover, .scroll-items a:hover {
     color: var(--my-red);
 }
 
@@ -289,14 +288,7 @@ button.login:hover {
     justify-content: center;
     align-items: center;
     padding: 0 8%;
-    height: 100px;        
-}
-
-.search-bar-container {
-    position: sticky;
-    top: 0;
-    background-color: white;
-    z-index: 5;
+    height: 75px;
 }
 
 .display-flex {
@@ -318,14 +310,24 @@ button.login:hover {
 .my-card {
     border: 1px solid rgb(225,225,225);
     margin: 10px 0;
-    border-radius: 10px;    
+    border-radius: 10px; 
+    cursor: pointer;   
+}
+
+.my-card:hover h3, .my-card:hover h4 {
+    text-decoration: underline;
 }
 
 .my-card-flex {
     display: flex;
     border: 1px solid rgb(225,225,225);
     margin: 10px 0;
-    border-radius: 10px;    
+    border-radius: 10px; 
+    cursor: pointer;   
+}
+
+.my-card-flex:hover h4 {
+    text-decoration: underline;
 }
 
 .my-card-header {
@@ -357,8 +359,18 @@ h4 {
     line-height: 1.5;
 }
 
+.scroll-items h4 {
+    font-size: 16px;
+}
+
 h5 {
     letter-spacing: 1px;
+}
+
+.scroll-items a {
+    letter-spacing: 1px;
+    color: rgb(30, 30, 30);
+    font-weight: bold;
 }
 
 p {
@@ -385,15 +397,110 @@ p {
     flex-wrap: nowrap;    
 }
 
-.banner-bar-container {
+.display-block {
+    display: block;
+}
+
+.colunistas {
+    background-color: rgb(245, 245, 245);
+    margin-top: 10px;
+    padding: 20px;
+    height: 490px;
+    overflow-y: scroll;
+}
+
+.scroll-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    border-bottom: 1px solid rgb(225,225,225);
+}
+
+.scroll-items div {
+    display: flex;
+    align-items: center;
+}
+
+.scroll-items img {
+    margin-right: 10px;
+    border-radius: 100%;
+    width: 40px;
+    border: 1px solid rgb(128, 128, 128);
+}
+
+.scroll-items a {
+    transition: 0.25s;
+}
+
+.scroll-items-link {
+    text-align: center;
+}
+
+.marketing-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+.marketing-title h3 {
+    color: white;
+    font-size: 25px;
+}
+
+.marketing h4 {
+    color: white;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.marketing-title a {
+    color: var(--my-red);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+section.marketing {
+    background-color: rgb(14, 25, 34);    
+    padding: 40px 0;
+}
+
+.marketing-items, .institucional {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.marketing-items img {
+    width: 160px;
+}
+
+.follow-us {
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.follow-us h4 {
+    font-size: 17px;
+}
+
+.institucional {
+    width: 800px;
+}
+
+.institucional a {
+    color: black;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.header {
     background-color: white;
     z-index: 5;
     position: sticky;
     top: 0;
-}
-
-.display-block {
-    display: block;
+    border-bottom: 1px solid rgb(230, 230, 230);
 }
 
 @media (max-width: 764px) {
@@ -403,6 +510,11 @@ p {
 
     button.login {
         display: none;
+    }
+
+    .institucional {
+        flex-direction: column;
+        height: 150px;
     }
 }
 
@@ -421,5 +533,15 @@ p {
 
     .search-bar {
         padding: 0;
+    }
+
+    .institucional {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1400px) {
+    .marketing-items img {
+        width: 140px;
     }
 }
